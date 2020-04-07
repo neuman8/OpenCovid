@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="CovidSummary"
+            type="com.example.opencovid.model.CovidSummaryViewModel" />
+        <variable
+            name="Covid"
+            type="com.example.opencovid.model.Covid"/>
+    </data>
+
+
+    <ScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:context=".Covid">
+
+            <ProgressBar
+                android:id="@+id/progress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:contentDescription="@string/app_name" />
+
+
+            <TextView
+                style="@style/text"
+                android:text="Covid Stats for your country" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                tools:context=".Covid">
+                <TextView
+                    style="@style/text"
+                    android:text="Country: " />
+                <TextView
+                    style="@style/text"
+                    android:text="@{CovidSummary.getItem(Covid.getCountryIndex()).getCountry()}" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                tools:context=".Covid">
+                <TextView
+                    style="@style/text"
+                    android:text="Total Confirmed: " />
+                <TextView
+                    style="@style/text"
+                    android:text="@{CovidSummary.getItem(Covid.getCountryIndex()).getTotalConfirmed}" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                tools:context=".Covid">
+                <TextView
+                    style="@style/text"
+                    android:text="New Confirmed: " />
+                <TextView
+                    style="@style/text"
+                    android:text="@{CovidSummary.getItem(Covid.getCountryIndex()).getNewConfirmed}" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                tools:context=".Covid">
+                <TextView
+                    style="@style/text"
+                    android:text="Total Deaths: " />
+                <TextView
+                    style="@style/text"
+                    android:text="@{CovidSummary.getItem(Covid.getCountryIndex()).getTotalDeaths}" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                tools:context=".Covid">
+                <TextView
+                    style="@style/text"
+                    android:text="New Deaths: " />
+                <TextView
+                    style="@style/text"
+                    android:text="@{CovidSummary.getItem(Covid.getCountryIndex()).getNewDeaths}" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                tools:context=".Covid">
+                <TextView
+                    style="@style/text"
+                    android:text="Total Recovered: " />
+                <TextView
+                    style="@style/text"
+                    android:text="@{CovidSummary.getItem(Covid.getCountryIndex()).getTotalRecovered}" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                tools:context=".Covid">
+                <TextView
+                    style="@style/text"
+                    android:text="New Recovered: " />
+                <TextView
+                    style="@style/text"
+                    android:text="@{CovidSummary.getItem(Covid.getCountryIndex()).getNewRecovered}" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>
