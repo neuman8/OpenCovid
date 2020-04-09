@@ -11,6 +11,7 @@ import java.util.List;
 //not a view model yet, just a pojo at this point
 public class CovidSummaryViewModel {
 
+
     public GlobalSummary getGlobalSummary() {
         return globalSummary;
     }
@@ -39,8 +40,13 @@ public class CovidSummaryViewModel {
     public SingleCountrySummary getItem(int position) {
         SingleCountrySummary retVal = null;
 
-        if(countrySummaryList != null && !countrySummaryList.isEmpty())
+        if(countrySummaryList != null && !countrySummaryList.isEmpty()) {
             retVal = countrySummaryList.get(position);
+            retVal.calculatedDeathRate = 100 * ((Double.valueOf(retVal.getTotalDeaths()))/(Double.valueOf(retVal.getTotalConfirmed())));
+            retVal.onePercentTrueCases = Integer.valueOf(retVal.getTotalDeaths())/.01;
+            retVal.twoPercentTrueCases = Integer.valueOf(retVal.getTotalDeaths())/.02;
+
+        }
         else
             Log.d("CSVM::getItem() "," the list is empty");
 
@@ -49,6 +55,38 @@ public class CovidSummaryViewModel {
     }
 
     public class SingleCountrySummary{
+
+        //calculated params
+
+        public String getOnePercentTrueCases() {
+            return String.valueOf(onePercentTrueCases);
+        }
+
+        public void setOnePercentTrueCases(int onePercentTrueCases) {
+            this.onePercentTrueCases = onePercentTrueCases;
+        }
+
+        public String getTwoPercentTrueCases() {
+            return String.valueOf(twoPercentTrueCases);
+        }
+
+        public void setTwoPercentTrueCases(int twoPercentTrueCases) {
+            this.twoPercentTrueCases = twoPercentTrueCases;
+        }
+
+        public String getCalculatedDeathRate() {
+            return String.valueOf(calculatedDeathRate).substring(0,4);
+        }
+
+        public void setCalculatedDeathRate(int calculatedDeathRate) {
+            this.calculatedDeathRate = calculatedDeathRate;
+        }
+
+        double onePercentTrueCases = 0;
+        double twoPercentTrueCases = 0;
+        double calculatedDeathRate = 0;
+
+        // api obtained params
 
         public String getCountry() {
             return Country;

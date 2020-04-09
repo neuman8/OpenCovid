@@ -49,6 +49,12 @@
                 style="@style/text"
                 android:text="Covid Stats for your country" />
 
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -140,6 +146,58 @@
                     style="@style/text"
                     android:text="@{CovidSummary.getItem(Covid.getCountryIndex()).getNewRecovered}" />
             </LinearLayout>
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                tools:context=".Covid">
+                <TextView
+                    style="@style/text"
+                    android:text="Current Death Rate: " />
+                <TextView
+                    style="@style/text"
+                    android:text="@{CovidSummary.getItem(Covid.getCountryIndex()).getCalculatedDeathRate()}" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                tools:context=".Covid">
+                <TextView
+                    style="@style/text"
+                    android:text="True Cases at 1% Death Rate: " />
+                <TextView
+                    style="@style/text"
+                    android:text="@{CovidSummary.getItem(Covid.getCountryIndex()).getOnePercentTrueCases()}" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                tools:context=".Covid">
+                <TextView
+                    style="@style/text"
+                    android:text="True Cases at 2% Death Rate: " />
+                <TextView
+                    style="@style/text"
+                    android:text="@{CovidSummary.getItem(Covid.getCountryIndex()).getTwoPercentTrueCases()}" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
 
 
         </LinearLayout>
