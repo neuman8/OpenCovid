@@ -1,2 +1,2 @@
 # OpenCovid
- Sample app to access api.covid19.api.com
+ App to access api.covid19api.com and provide your stats based on your location.
