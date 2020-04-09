@@ -75,7 +75,14 @@ public class CovidSummaryViewModel {
         }
 
         public String getCalculatedDeathRate() {
-            return String.valueOf(calculatedDeathRate).substring(0,4);
+            String retVal = " 0 %";
+            try {
+                retVal = String.valueOf(calculatedDeathRate).substring(0, 4);
+            }
+            catch(Exception e){
+
+            }
+            return retVal;
         }
 
         public void setCalculatedDeathRate(int calculatedDeathRate) {
